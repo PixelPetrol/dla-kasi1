@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Od portfolio do 9 000 zł na rękę: ścieżki w contencie i social media</title>
+<meta name="description" content="Interaktywny przewodnik: 8 ścieżek w contencie i social media, kalkulator dochodu na rękę i plan na pierwszy miesiąc. Kraków i praca zdalna, dane z września 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F4FA; --surface:#FFFFFF; --surface-2:#EEEAF5; --ink:#221A36; --muted:#655F78;
+  --line:#E0DAEA; --rec:#E8294C; --rec-soft:#FFE3E8; --caption:#FFD84A; --on-caption:#221A36;
+  --ok:#0B8F79; --ok-soft:#DDF4EF; --shadow:0 18px 40px rgba(34,26,54,.16);
+  --f-display:"Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --f-body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top, 0px);
+  padding-bottom:env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15111E; --surface:#1F1A2B; --surface-2:#2A2338; --ink:#F2EEF8; --muted:#ABA4BC;
+    --line:#382F4A; --rec:#FF5A76; --rec-soft:#3B1D29; --caption:#FFD84A; --on-caption:#221A36;
+    --ok:#3CCDB2; --ok-soft:#173A35; --shadow:0 18px 40px rgba(0,0,0,.5); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15111E; --surface:#1F1A2B; --surface-2:#2A2338; --ink:#F2EEF8; --muted:#ABA4BC;
+  --line:#382F4A; --rec:#FF5A76; --rec-soft:#3B1D29; --caption:#FFD84A; --on-caption:#221A36;
+  --ok:#3CCDB2; --ok-soft:#173A35; --shadow:0 18px 40px rgba(0,0,0,.5); color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top, 0px) + 72px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration-color:var(--rec);text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{color:var(--rec)}
+:focus-visible{outline:3px solid var(--rec);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+@media (min-width:760px){.wrap{padding:0 32px}}
+
+/* top bar with story-style progress */
+.topbar{position:sticky;top:env(safe-area-inset-top, 0px);z-index:40;background:var(--paper);background:color-mix(in srgb, var(--paper) 90%, transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:14px;height:56px}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:700;font-size:15px;white-space:nowrap;text-decoration:none}
+.rec{width:10px;height:10px;border-radius:50%;background:var(--rec);box-shadow:0 0 0 4px var(--rec-soft)}
+.story{flex:1;display:flex;gap:4px;min-width:0;background:none;border:0;padding:8px 0;cursor:pointer}
+.seg{flex:1;height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+.seg i{display:block;height:100%;width:0;background:var(--rec);transition:width .45s ease}
+.story-count{font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* hero */
+.hero{padding-top:44px;padding-bottom:36px}
+.captions{font-family:var(--f-display);font-weight:800;font-size:clamp(2.35rem, 8.6vw, 4.6rem);line-height:1.02;letter-spacing:-.02em;margin:0 0 22px;font-variation-settings:"opsz" 96}
+.cap{display:inline-block;background:var(--ink);color:var(--paper);padding:.04em .26em .1em;border-radius:.16em;margin:0 .04em .12em 0;transition:background-color .18s ease,color .18s ease,transform .18s ease}
+.cap.on{background:var(--caption);color:var(--on-caption);transform:translateY(-2px) rotate(-1.2deg)}
+.hero p.lede{font-size:clamp(1.05rem, 2.4vw, 1.25rem);max-width:60ch;margin:0 0 14px}
+.hero p.reality{max-width:62ch;color:var(--muted);margin:0 0 24px}
+.hero p.reality strong{color:var(--ink)}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--f-body);padding:13px 18px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer}
+.btn:hover{color:var(--paper);background:var(--rec);border-color:var(--rec)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* sections */
+section{padding:52px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--f-display);font-weight:750;font-size:clamp(1.65rem, 4.6vw, 2.45rem);line-height:1.1;letter-spacing:-.015em;margin:0 0 10px;max-width:24ch}
+.intro{max-width:64ch;color:var(--muted);margin:0 0 24px}
+h3{font-family:var(--f-display);font-weight:700;font-size:1.2rem;line-height:1.2;margin:0 0 6px}
+.small{font-size:13.5px;color:var(--muted)}
+
+/* salary chart */
+.chart-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 16px 12px;max-width:760px}
+.chart-card svg text{font-family:var(--f-body)}
+.c-lbl{fill:var(--ink);font-size:12.5px}
+.c-val{fill:var(--muted);font-size:11.5px}
+.c-axis{fill:var(--muted);font-size:10.5px}
+.c-grid{stroke:var(--line);stroke-width:1}
+.c-iqr{stroke:var(--muted);stroke-width:5;stroke-linecap:round;opacity:.35}
+.c-dot{fill:var(--rec)}
+.c-thr{stroke:var(--ok);stroke-width:2;stroke-dasharray:5 4}
+.c-thr-lbl{fill:var(--ok);font-size:11.5px;font-weight:600}
+
+/* quiz chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.chip{font:500 14px/1.2 var(--f-body);padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip:hover{border-color:var(--ink)}
+.quiz-note{min-height:1.5em;margin:-8px 0 18px;font-size:14px;color:var(--muted)}
+
+/* paths */
+.paths{display:grid;gap:12px}
+@media (min-width:760px){.paths{grid-template-columns:1fr 1fr}}
+.path{position:relative;display:grid;grid-template-columns:14px 1fr;gap:14px;text-align:left;width:100%;background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:16px 16px 16px 12px;cursor:pointer;color:var(--ink);font:inherit;transition:border-color .2s ease,transform .2s ease}
+.path:hover{border-color:var(--ink)}
+.strip{border-radius:6px;background:repeating-linear-gradient(to bottom, var(--line) 0 8px, transparent 8px 12px)}
+.path.match .strip{background:repeating-linear-gradient(to bottom, var(--rec) 0 8px, transparent 8px 12px)}
+.path.dim{opacity:.55}
+.path h3{margin-bottom:4px}
+.path .tag{color:var(--muted);font-size:14.5px;margin:0 0 10px}
+.path dl{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin:0;font-size:14px}
+.path dt{color:var(--muted)}
+.path dd{margin:0}
+.meter{display:inline-flex;gap:3px;margin-left:6px;vertical-align:middle}
+.meter b{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.meter b.f{background:var(--rec)}
+.open-hint{display:inline-block;margin-top:12px;padding:0;background:none;border:0;font:600 14px/1.3 var(--f-body);color:var(--rec);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+
+/* dialog */
+dialog.sheet{border:0;padding:0;background:var(--surface);color:var(--ink);width:100%;max-width:100%;max-height:90vh;border-radius:22px 22px 0 0;margin:auto 0 0;box-shadow:var(--shadow)}
+@media (min-width:760px){dialog.sheet{width:min(720px, calc(100% - 48px));border-radius:22px;margin:auto;max-height:86vh}}
+dialog.sheet::backdrop{background:rgba(20,14,32,.55)}
+.sheet-inner{padding:20px 20px calc(24px + env(safe-area-inset-bottom, 0px));overflow:auto;max-height:90vh}
+@media (min-width:760px){.sheet-inner{padding:28px 30px 30px;max-height:86vh}}
+.sheet-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.sheet-head h3{font-size:1.55rem}
+.x{flex:none;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-size:20px;line-height:1;cursor:pointer}
+.facts{display:grid;grid-template-columns:1fr;column-gap:24px;margin:10px 0 0;font-size:14.5px}
+@media (min-width:560px){.facts{grid-template-columns:1fr 1fr}}
+.fact{padding:9px 0;border-top:1px solid var(--line)}
+.fact span{display:block;font-size:12.5px;color:var(--muted)}
+.sheet h4{font-family:var(--f-display);font-size:1.05rem;margin:22px 0 4px}
+.nine{background:var(--caption);color:var(--on-caption);border-radius:12px;padding:12px 14px;margin:6px 0 16px;font-weight:600}
+ol.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;gap:8px}
+ol.steps li{counter-increment:s}
+.step{position:relative;display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;padding:10px 12px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer}
+.step input{position:absolute;opacity:0;pointer-events:none}
+.step .num{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);font:700 14px/1 var(--f-display)}
+.step .num::before{content:counter(s)}
+.step:has(input:checked){border-color:var(--ok);background:var(--ok-soft)}
+.step:has(input:checked) .num{background:var(--ok);color:#fff}
+.step:has(input:checked) .num::before{content:"✓"}
+.step:has(input:focus-visible){outline:3px solid var(--rec);outline-offset:2px}
+
+/* calculator */
+.calc{display:grid;gap:20px}
+@media (min-width:900px){.calc{grid-template-columns:1.15fr .85fr;align-items:start}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.field{display:grid;gap:6px;padding:12px 0;border-top:1px solid var(--line)}
+.field:first-of-type{border-top:0}
+.field-head{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.field label{font-weight:600}
+.field output{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.field .hint{font-size:13px;color:var(--muted)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input[type=range]{width:100%;accent-color:var(--rec);height:28px}
+select,input[type=number]{font:inherit;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
+.result{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 72px)}
+.total{font-family:var(--f-display);font-weight:800;font-size:clamp(2.4rem, 7vw, 3.3rem);line-height:1;margin:6px 0 4px;font-variant-numeric:tabular-nums}
+.bar{position:relative;height:14px;border-radius:999px;background:var(--surface-2);overflow:hidden;margin:14px 0 6px}
+.bar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--rec);border-radius:999px;transition:width .35s ease}
+.bar.done i{background:var(--ok)}
+.status{font-weight:600;margin:0 0 14px}
+.breakdown{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:6px;font-size:14.5px}
+.breakdown li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.breakdown span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.notes{margin:0;padding-left:18px;font-size:13.5px;color:var(--muted);display:grid;gap:4px}
+.calc-pill{position:fixed;left:0;right:0;bottom:0;z-index:45;display:none;align-items:center;gap:12px;padding:12px 20px calc(12px + env(safe-area-inset-bottom, 0px));background:var(--ink);color:var(--paper);font-size:14px}
+.calc-pill b{font-family:var(--f-display);font-size:20px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.calc-pill .mini{flex:1;height:8px;border-radius:99px;background:color-mix(in srgb, var(--paper) 28%, transparent);overflow:hidden}
+.calc-pill .mini i{display:block;height:100%;width:0;background:var(--caption);transition:width .3s ease}
+.calc-pill.show{display:flex}
+@media (min-width:900px){.calc-pill{display:none !important}}
+
+/* plan */
+.plan{display:grid;gap:14px}
+@media (min-width:760px){.plan{grid-template-columns:repeat(auto-fit, minmax(230px, 1fr))}}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px}
+.stage-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+.stage-head h3{margin:0}
+.stage-count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.task{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line);font-size:14.5px;cursor:pointer}
+.task:first-of-type{border-top:0}
+.task input{margin-top:3px;width:18px;height:18px;accent-color:var(--ok);flex:none}
+.task:has(input:checked) span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--ok)}
+.reset{margin-top:16px;background:none;border:0;color:var(--muted);font:500 14px var(--f-body);text-decoration:underline;cursor:pointer;padding:6px 0}
+
+/* portfolio reels */
+.reels{display:grid;grid-template-columns:repeat(2, 1fr);gap:12px}
+@media (min-width:760px){.reels{grid-template-columns:repeat(4, 1fr)}}
+.reel{position:relative;aspect-ratio:9/14;border-radius:20px;background:linear-gradient(160deg, var(--surface-2), var(--surface));border:1.5px solid var(--line);padding:12px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;overflow:hidden}
+.reel input{position:absolute;opacity:0;pointer-events:none}
+.reel .top{display:flex;justify-content:space-between;align-items:center}
+.len{font-size:12px;font-weight:600;background:var(--surface);border:1px solid var(--line);padding:3px 8px;border-radius:999px}
+.play{width:0;height:0;border-left:13px solid var(--ink);border-top:8px solid transparent;border-bottom:8px solid transparent;opacity:.7}
+.reel .cap-t{align-self:flex-start;-webkit-box-decoration-break:clone;box-decoration-break:clone;background:var(--ink);color:var(--paper);font-family:var(--f-display);font-weight:700;font-size:15px;line-height:1.15;padding:5px 8px 6px;border-radius:7px}
+.reel .proves{font-size:13px;color:var(--muted);margin-top:6px}
+.reel:has(input:checked){border-color:var(--ok)}
+.reel:has(input:checked) .cap-t{background:var(--ok);color:#fff}
+.reel:has(input:checked) .play{border-left-color:var(--ok);opacity:1}
+.reel:has(input:focus-visible){outline:3px solid var(--rec);outline-offset:2px}
+
+/* offers */
+.offers{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+details.offer{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+details.offer[open]{border-color:var(--ink)}
+details.offer > summary{list-style:none;cursor:pointer;padding:14px 16px;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+details.offer > summary::-webkit-details-marker{display:none}
+.sum-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.sum-top > div{min-width:0}
+.offer h3{font-size:1.05rem;margin:0}
+.offer .co{color:var(--muted);font-size:14px}
+.offer .pay{font-size:14.5px}
+.sum-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.badge{font-size:13px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--surface-2);white-space:nowrap}
+.badge.soon{background:var(--rec-soft);color:var(--rec)}
+.fit{flex:none;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.fit.start{background:var(--ok-soft);color:var(--ok)}
+.fit.try{background:var(--caption);color:var(--on-caption)}
+.fit.exp{background:var(--surface-2);color:var(--muted)}
+.more{font-size:14px;font-weight:600;color:var(--rec);text-decoration:underline;text-underline-offset:3px}
+.more::after{content:"Pokaż research"}
+details[open] .more::after{content:"Zwiń"}
+.offer-body{margin:0 16px;padding:12px 0 16px;border-top:1px dashed var(--line);display:grid;gap:12px}
+.offer-body .why{margin:0;font-weight:600}
+.offer-body dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:2px 18px;font-size:14.5px}
+.offer-body dt{color:var(--muted);font-size:13px;margin-top:8px}
+.offer-body dd{margin:0}
+@media (min-width:760px){.offer-body dl{grid-template-columns:150px minmax(0,1fr);row-gap:8px}.offer-body dt{margin-top:1px}}
+.offer-body .btn{justify-self:start}
+.offer-link{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.offer.expired{opacity:.5}
+.offers-empty{color:var(--muted);padding:12px 0}
+
+/* niches and where */
+.niches{display:grid;gap:12px}
+@media (min-width:760px){.niches{grid-template-columns:1fr 1fr}}
+.niche{background:var(--surface);border-left:5px solid var(--rec);border-radius:4px 16px 16px 4px;padding:14px 16px}
+.niche p{margin:4px 0 0;font-size:14.5px}
+.where{display:grid;gap:18px}
+@media (min-width:760px){.where{grid-template-columns:repeat(3, 1fr)}}
+.where ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px;font-size:15px}
+.where li span{color:var(--muted);font-size:13.5px}
+
+footer{border-top:1px solid var(--line);padding:36px 0 48px;font-size:14px;color:var(--muted)}
+footer p{max-width:72ch}
+footer ul{padding-left:18px;display:grid;gap:4px}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Na górę strony"><span class="rec" aria-hidden="true"></span>Droga do 9&nbsp;000&nbsp;zł</a>
+    <button class="story" id="storyBar" type="button" aria-label="Postęp planu na pierwszy miesiąc, przejdź do planu"></button>
+    <span class="story-count" id="storyCount">0/0</span>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <h1 class="captions" aria-label="Od portfolio do 9 000 zł na rękę">
+      <span class="cap">Od</span> <span class="cap">portfolio</span> <span class="cap">do</span> <span class="cap">9&nbsp;000&nbsp;zł</span> <span class="cap">na&nbsp;rękę</span>
+    </h1>
+    <p class="lede">Osiem ścieżek w contencie i social media, kalkulator dochodu i plan na pierwszy miesiąc. Kraków i praca zdalna, dane z ofert i raportów z września 2026.</p>
+    <p class="reality">Na etacie 9 000 zł na rękę to ok. <strong>13 000 zł brutto</strong>, czyli poziom kierowniczy. Na własnej działalności to ok. <strong>12 200 zł przychodu</strong> miesięcznie. Bez doświadczenia realny horyzont to 6–12 miesięcy freelance albo 1–3 lata w agencji.</p>
+    <div class="actions">
+      <a class="btn" href="#sciezki">Wybierz ścieżkę</a>
+      <a class="btn ghost" href="#kalkulator">Policz swój miks</a>
+    </div>
+  </div>
+
+  <section id="rzeczywistosc">
+    <div class="wrap">
+      <h2>Etat: mediany są daleko od progu</h2>
+      <p class="intro">Nawet górny kwartyl seniorów social media, 10 770 zł brutto, daje ok. 7 700 zł na rękę. Dlatego większość dróg do 9 000 zł łączy kilka źródeł dochodu.</p>
+      <div class="chart-card">
+        <svg id="salaryChart" viewBox="0 0 640 250" role="img" aria-label="Mediany wynagrodzeń na etacie w zawodach contentowych są poniżej 13 000 zł brutto"></svg>
+        <p class="small"><span id="chartLegend" hidden>SMM to social media manager. </span>Kropka: mediana, pasek: środkowe 50% zarobków, umowa o pracę, brutto. Źródło: <a href="https://wynagrodzenia.pl/moja-placa/ile-zarabia-social-media-manager">wynagrodzenia.pl</a>, dane 2026. Linia przerywana: 13 000 zł brutto, czyli ok. 9 000 zł na rękę.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sciezki">
+    <div class="wrap">
+      <h2>Która ścieżka pasuje do Ciebie?</h2>
+      <p class="intro">Zaznacz, co jest dla Ciebie ważne. Ścieżki ułożą się od najlepiej dopasowanych. Kliknij ścieżkę, żeby zobaczyć plan krok po kroku.</p>
+      <div class="chips" id="quiz" role="group" aria-label="Twoje preferencje"></div>
+      <p class="quiz-note" id="quizNote" aria-live="polite"></p>
+      <div class="paths" id="paths"></div>
+    </div>
+  </section>
+
+  <section id="kalkulator">
+    <div class="wrap">
+      <h2>Policz swój miks</h2>
+      <p class="intro">Połącz etat, umowy o dzieło i usługi na własnej działalności. Wynik to przybliżona kwota na rękę miesięcznie.</p>
+      <div class="calc">
+        <div class="panel">
+          <div class="presets" id="presets" role="group" aria-label="Gotowe scenariusze"></div>
+          <div class="field">
+            <div class="field-head"><label for="etat">Etat, brutto</label><output id="etatOut" for="etat"></output></div>
+            <input type="range" id="etat" min="0" max="16000" step="100" value="0">
+            <span class="hint">Pensja co najmniej 4 806 zł brutto zwalnia działalność ze składek społecznych.</span>
+          </div>
+          <div class="field">
+            <div class="field-head"><label for="dzielo">Umowy o dzieło, brutto miesięcznie</label><output id="dzieloOut" for="dzielo"></output></div>
+            <input type="range" id="dzielo" min="0" max="10000" step="100" value="0">
+            <span class="hint">Np. pojedyncze filmy dla firm z przeniesieniem praw autorskich.</span>
+          </div>
+          <div class="field">
+            <div class="field-head"><label for="subs">Stali klienci social media</label><output id="subsOut" for="subs"></output></div>
+            <input type="range" id="subs" min="0" max="8" step="1" value="0">
+            <div class="pair"><label class="hint" for="subsPrice">Cena abonamentu, zł/mies.<input type="number" id="subsPrice" min="0" step="100" value="2500"></label></div>
+          </div>
+          <div class="field">
+            <div class="field-head"><label for="ugc">Filmy UGC miesięcznie</label><output id="ugcOut" for="ugc"></output></div>
+            <input type="range" id="ugc" min="0" max="40" step="1" value="0">
+            <div class="pair"><label class="hint" for="ugcPrice">Cena za film, zł<input type="number" id="ugcPrice" min="0" step="50" value="500"></label></div>
+          </div>
+          <div class="field">
+            <div class="field-head"><label for="reels">Montaż rolek miesięcznie</label><output id="reelsOut" for="reels"></output></div>
+            <input type="range" id="reels" min="0" max="40" step="1" value="0">
+            <div class="pair"><label class="hint" for="reelsPrice">Cena za rolkę, zł<input type="number" id="reelsPrice" min="0" step="50" value="300"></label></div>
+          </div>
+          <div class="field">
+            <label for="zus">Etap ZUS na własnej działalności</label>
+            <select id="zus">
+              <option value="ulga">Ulga na start (6 mies.)</option>
+              <option value="pref" selected>Preferencyjny ZUS (24 mies.)</option>
+              <option value="full">Pełny ZUS</option>
+            </select>
+          </div>
+        </div>
+        <div class="panel result" aria-live="polite">
+          <div class="small">Na rękę miesięcznie</div>
+          <div class="total" id="total">0 zł</div>
+          <div class="bar" id="bar"><i></i></div>
+          <p class="status" id="status"></p>
+          <ul class="breakdown" id="breakdown"></ul>
+          <ul class="notes" id="notes"></ul>
+        </div>
+      </div>
+      <p class="small">Wyliczenia uproszczone: ryczałt 15% dla usług reklamowych, księgowość 200 zł, bez ulgi dla młodych i PPK. To nie jest porada podatkowa; formę rozliczenia wybierz z księgową.</p>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="wrap">
+      <h2>Plan na pierwszy miesiąc</h2>
+      <p class="intro">Zaznaczaj zrobione zadania. Postęp zapisuje się w tej przeglądarce i widać go na pasku u góry strony.</p>
+      <div class="plan" id="planGrid"></div>
+      <button class="reset" id="resetPlan" type="button">Wyczyść zaznaczenia</button>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="wrap">
+      <h2>Portfolio w jeden dzień: 8 prac</h2>
+      <p class="intro">Tyle wystarczy na start, nagrane produktami z domu i podpisane jako koncept, a nie współpraca z marką. Liczba obserwujących przy UGC nie ma znaczenia; liczy się sposób myślenia, montaż i swoboda przed kamerą.</p>
+      <div class="reels" id="reelGrid"></div>
+    </div>
+  </section>
+
+  <section id="oferty">
+    <div class="wrap">
+      <h2>Oferty na start</h2>
+      <p class="intro">10 ofert z Krakowa i pracy zdalnej, przeczytanych w całości 27.09.2026: firma, obowiązki, wymagania, stawka na rękę i sposób aplikowania. Rozwiń ofertę, żeby zobaczyć research i link do ogłoszenia.</p>
+      <div class="chips" id="offerFilter" role="group" aria-label="Filtruj oferty"></div>
+      <div class="offers" id="offers"></div>
+      <p class="small">Kwoty na rękę to przybliżone wyliczenia: umowa o pracę bez ulgi dla młodych, B2B z preferencyjnym ZUS. Licznik dni liczy się od dzisiejszej daty; treść ogłoszeń może się zmienić, więc przed aplikacją otwórz link.</p>
+    </div>
+  </section>
+
+  <section id="nisze">
+    <div class="wrap">
+      <h2>Nisze z największym potencjałem</h2>
+      <div class="niches">
+        <div class="niche"><h3>TikTok Shop i live commerce</h3><p>Działa w Polsce od 15.06.2026, więc doświadczonych ludzi jest mało. Na start marka potrzebuje 20–30 filmów produktowych, transmisji LIVE i twórców afiliacyjnych, którym płaci zwykle 5–30% sprzedaży. <a href="https://emedia.pl/baza-wiedzy/jak-sprzedawac-na-tiktoku-tiktok-shop">Źródło</a></p></div>
+        <div class="niche"><h3>Reklamy UGC dla e-commerce</h3><p>Film UGC kosztuje 250–1 500 zł netto, a licencja na płatne reklamy dolicza 30–100%. Najlepiej płatne branże to beauty i tech. <a href="https://tworcyugc.pl/cennik">Źródło</a></p></div>
+        <div class="niche"><h3>Marki mody i beauty w Krakowie</h3><p>Aktywne oferty mają LPP (Mohito), OTCF (4F), NAOS (Bioderma) i Krakowska Akademia Kosmetyczna. Etaty płacą mniej niż 9 000 zł na rękę, ale dają rozpoznawalne nazwy w CV.</p></div>
+        <div class="niche"><h3>Nieruchomości premium, lokale, hotele</h3><p>Rolki z ofert i marka osobista agentów; krakowskie lokale i hotele płacą zwykle 1 000–3 000 zł miesięcznie za prowadzenie profilu. <a href="https://digitalk.pl/blog/ile-kosztuje-prowadzenie-social-media-cennik/">Źródło</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gdzie">
+    <div class="wrap">
+      <h2>Gdzie szukać</h2>
+      <div class="where">
+        <div><h3>Oferty pracy</h3><ul>
+          <li><a href="https://www.pracuj.pl/praca/social%20media%20specialist;kw/krakow;wp">Pracuj.pl</a> <span>131 ofert w Krakowie</span></li>
+          <li><a href="https://rocketjobs.pl/oferty-pracy/krakow/marketing/social-media">RocketJobs</a> <span>45 ofert, 30 zdalnych</span></li>
+          <li><a href="https://praca.wirtualnemedia.pl">Praca Wirtualnych Mediów</a></li>
+          <li><a href="https://pl.indeed.com/q-social-media-l-krak%C3%B3w,-ma%C5%82opolskie-oferty-pracy.html">Indeed</a></li>
+          <li><a href="https://www.linkedin.com/jobs/">LinkedIn</a></li>
+        </ul></div>
+        <div><h3>Zlecenia UGC i freelance</h3><ul>
+          <li><a href="https://tworcyugc.pl/dla-tworcow">TworcyUGC</a> <span>prowizja 15%</span></li>
+          <li><a href="https://influee.co">Influee</a> <span>ok. 5 tys. twórców z Polski</span></li>
+          <li><a href="https://collabstr.com">Collabstr</a> <span>rozliczenia w USD</span></li>
+          <li><a href="https://hypero-ugc.webflow.io/cennik">Hypero</a></li>
+          <li><a href="https://useme.com">Useme</a></li>
+        </ul></div>
+        <div><h3>Agencje i marki</h3><ul>
+          <li>SpaceCat <span>staże i kariera w short video</span></li>
+          <li>Bluebinary.io, NetArch, Sempai, Tigers, Grupa Blix</li>
+          <li>LPP, OTCF (4F), NAOS (Bioderma)</li>
+          <li>Lokalne firmy <span>wiadomość z jedną dopasowaną próbką</span></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Stan danych: 27.09.2026.</strong> Oferty zmieniają się codziennie. Cenniki UGC publikują firmy, które te usługi sprzedają, więc widełki mogą być zawyżone. Kalkulator upraszcza podatki i nie zastępuje księgowej.</p>
+    <p>Główne źródła:</p>
+    <ul>
+      <li><a href="https://symfonia.pl/blog/firmy/male-firmy/skladki-zus-w-2026-r-dla-przedsiebiorcow-ile-wyniosa/">Składki ZUS 2026 (Symfonia)</a></li>
+      <li><a href="https://www.wirtualnemedia.pl/raport-placowy-2026-kto-zarabia-najwiecej-w-marketingu-i-e-commerce,7242673111546848a">Raport płacowy Hays 2026 (Wirtualne Media)</a></li>
+      <li><a href="https://wynagrodzenia.pl/moja-placa/ile-zarabia-social-media-manager">Zarobki social media managera (wynagrodzenia.pl)</a></li>
+      <li><a href="https://tworcyugc.pl/cennik">Cennik UGC 2026 (TworcyUGC)</a></li>
+      <li><a href="https://emedia.pl/baza-wiedzy/jak-sprzedawac-na-tiktoku-tiktok-shop">TikTok Shop w Polsce (emedia)</a></li>
+      <li><a href="https://rocketjobs.pl/oferty-pracy/krakow/marketing/social-media">Oferty social media w Krakowie (RocketJobs)</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="calc-pill" id="calcPill" aria-hidden="true"><span>Na rękę</span><b id="pillTotal">0 zł</b><span class="mini"><i id="pillBar"></i></span></div>
+
+<dialog class="sheet" id="pathDialog" aria-labelledby="dlgTitle">
+  <div class="sheet-inner" id="dlgBody"></div>
+</dialog>
+
+<script>
+(function(){
+  "use strict";
+  var LS = {
+    get: function(k, d){ try { var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch(e){ return d; } },
+    set: function(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  };
+  function grp(n){ var s = String(Math.round(Math.abs(n))); return (n < 0 ? "−" : "") + s.replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0"); }
+  function zl(n){ return grp(n) + "\u00a0zł"; }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* ---------- hero caption sequence ---------- */
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce){
+    var caps = document.querySelectorAll(".cap");
+    caps.forEach(function(c, i){
+      setTimeout(function(){ c.classList.add("on"); }, 250 + i * 330);
+      setTimeout(function(){ c.classList.remove("on"); }, 250 + (i + 1) * 330);
+    });
+  }
+
+  /* ---------- salary chart ---------- */
+  function drawChart(){
+    var svg = $("salaryChart");
+    var narrow = (svg.getBoundingClientRect().width || 640) < 480;
+    var rows = [
+      [narrow ? "SMM junior" : "Social media, junior", 6220, 5360, 7510],
+      [narrow ? "SMM specjalista" : "Social media, specjalista", 7570, 6580, 9110],
+      [narrow ? "SMM senior" : "Social media, senior", 9000, 7330, 10770],
+      ["Copywriter", 7280, 6040, 8670],
+      ["Montażysta", 6610, 5690, 8910]
+    ];
+    var W = narrow ? 360 : 640, left = narrow ? 112 : 178, right = narrow ? 12 : 24, top = 30, rowH = 36, max = 14000;
+    var H = top + rows.length * rowH + 30;
+    var x = function(v){ return left + (W - left - right) * v / max; };
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    var s = "";
+    (narrow ? [0, 6000, 12000] : [0, 4000, 8000, 12000]).forEach(function(t){
+      s += '<line class="c-grid" x1="' + x(t) + '" x2="' + x(t) + '" y1="' + (top - 8) + '" y2="' + (top + rows.length * rowH) + '"/>';
+      s += '<text class="c-axis" x="' + x(t) + '" y="' + (top + rows.length * rowH + 18) + '" text-anchor="middle">' + grp(t) + '</text>';
+    });
+    rows.forEach(function(r, i){
+      var y = top + i * rowH + rowH / 2;
+      s += '<text class="c-lbl" x="' + (left - 12) + '" y="' + (y + 4) + '" text-anchor="end">' + esc(r[0]) + '</text>';
+      s += '<line class="c-iqr" x1="' + x(r[2]) + '" x2="' + x(r[3]) + '" y1="' + y + '" y2="' + y + '"><title>' + esc(r[0]) + ': środkowe 50% to ' + grp(r[2]) + '–' + grp(r[3]) + ' zł</title></line>';
+      s += '<circle class="c-dot" cx="' + x(r[1]) + '" cy="' + y + '" r="6"><title>' + esc(r[0]) + ': mediana ' + grp(r[1]) + ' zł brutto</title></circle>';
+      var vx = x(r[3]) + 10, anchor = "start";
+      if (vx + 42 > x(13000)){ vx = x(r[2]) - 10; anchor = "end"; }
+      s += '<text class="c-val" x="' + vx + '" y="' + (y + 4) + '" text-anchor="' + anchor + '">' + grp(r[1]) + '</text>';
+    });
+    var tx = x(13000);
+    s += '<line class="c-thr" x1="' + tx + '" x2="' + tx + '" y1="' + (top - 14) + '" y2="' + (top + rows.length * rowH) + '"/>';
+    s += '<text class="c-thr-lbl" x="' + (tx - 6) + '" y="' + (top - 16) + '" text-anchor="end">13 000 zł brutto ≈ 9 000 zł na rękę</text>';
+    svg.innerHTML = s;
+    var legend = $("chartLegend"); if (legend) legend.hidden = !narrow;
+  }
+  drawChart();
+  var rsz; window.addEventListener("resize", function(){ clearTimeout(rsz); rsz = setTimeout(drawChart, 150); });
+
+  /* ---------- paths ---------- */
+  var PREFS = [
+    ["stable", "Chcę stałej pensji"],
+    ["fast", "Chcę zarabiać jak najszybciej"],
+    ["camera", "Lubię występować przed kamerą"],
+    ["behind", "Wolę być za kamerą"],
+    ["english", "Swobodnie mówię po angielsku"],
+    ["sales", "Lubię rozmawiać z klientami"],
+    ["ceiling", "Chcę najwyższego pułapu"]
+  ];
+  var PATHS = [
+    { id:"ugc-pl", name:"UGC dla polskich marek", tag:"Nagrywasz filmy do reklam i profili marek.",
+      earn:"250–1 500 zł za film, licencja na reklamy +30–100%. Na start realnie 150–350 zł.", start:"2–4 tygodnie",
+      need:"Bez doświadczenia i studiów. Portfolio 5–10 filmów.", comp:"Wysoka: ok. 5 tys. polskich twórców na samym Influee.",
+      remote:"Tak", first:"TworcyUGC, sklepy e-commerce, wiadomości do marek beauty i modowych.",
+      nine:"Ok. 18 filmów po 700 zł z licencją albo 31 filmów po 400 zł.", scale:"Pakiety miesięczne, licencje, whitelisting (zwykle +30% miesięcznie).",
+      steps:["Nagraj 5–10 filmów w 3 formatach: problem i rozwiązanie, unboxing, demo.",
+             "Załóż profil na TworcyUGC i Influee, 3 najlepsze filmy daj na górę.",
+             "Weź 3 pierwsze zlecenia po 250–350 zł i poproś o opinię.",
+             "Od czwartego zlecenia wyceniaj licencję na reklamy osobno: +30–100%.",
+             "Zamień jednorazowych klientów na pakiet kilku filmów miesięcznie.",
+             "Cel: ok. 18 filmów miesięcznie po ok. 700 zł z licencją."],
+      tags:["fast","camera"] },
+    { id:"ugc-en", name:"UGC dla marek zagranicznych", tag:"To samo, ale po angielsku i w dolarach.",
+      earn:"75–150 USD za film na start, 300–1 000 USD na średnim poziomie.", start:"1–2 miesiące",
+      need:"Płynny angielski przed kamerą i filmy po angielsku w portfolio.", comp:"Bardzo wysoka, globalna; ceny spycha też UGC generowane przez AI.",
+      remote:"Tak", first:"Influee i Collabstr.",
+      nine:"13–22 filmy miesięcznie po 150–250 USD.", scale:"Stałe marki i wyższa stawka za udokumentowane wyniki reklam.",
+      steps:["Nagraj 3–5 filmów po angielsku w formatach reklamowych.",
+             "Załóż profile na Influee i Collabstr.",
+             "Weź pierwsze zlecenia po 75–150 USD, zbieraj opinie i wyniki.",
+             "Przed pierwszą fakturą dla firmy z UE ustal z księgową rejestrację VAT-UE.",
+             "Przy powracających klientach podnieś stawkę do ok. 250 USD.",
+             "Cel: 13–22 filmy miesięcznie."],
+      tags:["camera","english","ceiling"] },
+    { id:"smm", name:"Freelance social media dla lokalnych firm", tag:"Prowadzisz profile: plan, rolki, publikacja, odpowiedzi.",
+      earn:"1 000–3 000 zł miesięcznie od klienta.", start:"2–6 tygodni",
+      need:"Bez doświadczenia i studiów. Portfolio i mini-case.", comp:"Średnia na rynku lokalnym.",
+      remote:"Częściowo: nagrania na miejscu u klienta.", first:"Krakowskie lokale, hotele, salony beauty, biura nieruchomości.",
+      nine:"4–5 stałych klientów po ok. 2 500 zł.", scale:"Obsługa reklam (500–2 000 zł miesięcznie) albo podwykonawcy do montażu.",
+      steps:["Wybierz 40 firm, które publikują rzadko albo bez rolek.",
+             "Do każdej wyślij jedną próbkę dopasowaną do jej profilu.",
+             "Pierwszy klient: miesiąc próbny za 1 000–1 500 zł.",
+             "Po miesiącu pokaż wyniki i zaproponuj stały abonament.",
+             "U kolejnych klientów podnoś cenę do ok. 2 500 zł.",
+             "Cel: 4–5 stałych klientów."],
+      tags:["fast","sales","behind"] },
+    { id:"montaz", name:"Montażystka short form", tag:"Montujesz rolki i shorty z cudzych nagrań.",
+      earn:"150–800 zł za rolkę; 6 000–10 000 zł B2B przy stałej współpracy.", start:"2–4 tygodnie",
+      need:"Bez doświadczenia i studiów. Portfolio z wersjami przed i po.", comp:"Średnia.",
+      remote:"Tak", first:"Twórcy, podcasterzy i agencje; oferty montażu na RocketJobs.",
+      nine:"2 stałych klientów z pakietem 10 rolek po ok. 6 100 zł.", scale:"Stałe pakiety, szablony montażu, narzędzia AI.",
+      steps:["Opanuj CapCut: cięcia, dynamiczne napisy, dźwięk.",
+             "Zrób 3 pary przed i po z własnych albo darmowych nagrań.",
+             "Zaproponuj twórcom i podcasterom próbny montaż 3 shortów.",
+             "Sprzedawaj pakiety 10 rolek miesięcznie za 3 000–8 000 zł.",
+             "Cel: 2 stałych klientów z pakietem."],
+      tags:["fast","behind"] },
+    { id:"tiktokshop", name:"TikTok Shop i live commerce", tag:"Filmy produktowe, prowadzenie LIVE, obsługa sklepu.",
+      earn:"Polskich stawek jeszcze nie ma; prowizje afiliacyjne to 5–30% sprzedaży.", start:"2–6 tygodni",
+      need:"Bez doświadczenia. 3 filmy produktowe i próbny LIVE.", comp:"Niska: kanał działa w Polsce od 15.06.2026.",
+      remote:"Częściowo", first:"Sklepy obecne na TikTok Shop; oferta TikTok LIVE Host w Krakowie.",
+      nine:"Możliwe, ale jeszcze niepotwierdzone danymi.", scale:"Obsługa kilku sklepów i prowizje od sprzedaży.",
+      steps:["Nagraj 3 filmy produktowe z hookiem w pierwszych 2 sekundach.",
+             "Nagraj 10-minutowy próbny LIVE z jednym produktem.",
+             "Znajdź sklepy aktywne na TikTok Shop w beauty i modzie.",
+             "Zaproponuj pakiet: filmy produktowe i jeden LIVE tygodniowo.",
+             "Aplikuj na TikTok LIVE Host w PromoTraffic (do 08.10)."],
+      tags:["fast","camera","sales"] },
+    { id:"agencja", name:"Agencja short video i influencer marketingu", tag:"Koordynujesz kampanie z twórcami: briefy, terminy, raporty.",
+      earn:"SpaceCat: staż 2 550 zł, potem 7 000–10 000 zł, potem 9 500–13 000 zł.", start:"Staż od zaraz, awans po ok. roku",
+      need:"Na staż bez doświadczenia; na Campaign Executive rok w agencji i angielski.", comp:"Wysoka na staże.",
+      remote:"Tak, SpaceCat pracuje w pełni zdalnie.", first:"Staż InfluencerMarketing Intern w SpaceCat (do 15.10).",
+      nine:"Po 1–3 latach jako Account Manager lub Team Leader.", scale:"Awans, później własni klienci.",
+      steps:["Aplikuj na staż InfluencerMarketing Intern w SpaceCat (do 15.10).",
+             "Przez rok zbieraj do CV kampanie: marki, twórców, wyniki.",
+             "Awansuj na Campaign Executive: 7 000–10 000 zł B2B.",
+             "Po 2–3 latach Account Manager: 9 500–13 000 zł."],
+      tags:["stable","english","sales","ceiling","behind"] },
+    { id:"inhouse", name:"Etat w marce modowej lub kosmetycznej", tag:"Tworzysz content dla jednej marki w Krakowie.",
+      earn:"Junior 4 806–7 000 zł brutto; mid 5 000–8 000 zł.", start:"1–2 miesiące rekrutacji",
+      need:"Oferty juniorskie; portfolio w estetyce marki i zadanie testowe.", comp:"Wysoka: jedno stanowisko zebrało 1 663 CV w 30 dni.",
+      remote:"Rzadziej", first:"FYNK, Krakowska Akademia Kosmetyczna, DECOFIRE, OTCF (4F).",
+      nine:"Nie na starcie: mediany to 6 200–9 000 zł brutto.", scale:"Awans albo łączenie etatu z umowami o dzieło.",
+      steps:["Dopasuj portfolio do estetyki marek, do których aplikujesz.",
+             "Aplikuj: FYNK (do 16.10), Krakowska Akademia Kosmetyczna (do 16.10), DECOFIRE (do 18.10). OTCF (do 08.10) wymaga roku w fotografii.",
+             "Przygotuj się na zadanie testowe albo nagranie próbne.",
+             "Po roku rozmawiaj o awansie albo dokładaj zlecenia na umowę o dzieło.",
+             "Przykładowy cel: 7 000 zł brutto etatu i 4 200 zł z umów o dzieło."],
+      tags:["stable"] },
+    { id:"strategist", name:"Creative strategist", tag:"Wymyślasz koncepty i hooki reklam, piszesz briefy, czytasz wyniki.",
+      earn:"Przykładowa oferta: 9 500–12 500 zł B2B.", start:"6–12 miesięcy",
+      need:"Doświadczenie z UGC i wynikami reklam; studia niepotrzebne.", comp:"Niska–średnia.",
+      remote:"Tak", first:"Awans z UGC albo zdalne oferty firm produktowych.",
+      nine:"Tak, po zdobyciu wyników.", scale:"Zagraniczne firmy produktowe.",
+      steps:["Zacznij od UGC, żeby rozumieć, co zatrzymuje widza.",
+             "Naucz się podstaw Menedżera Reklam Meta i wskaźników CTR, CPA, ROAS.",
+             "Przy każdym filmie zapisuj, które hooki działały najlepiej.",
+             "Zbuduj portfolio z wynikami: koncept, warianty, liczby.",
+             "Aplikuj do zdalnych ról creative strategist."],
+      tags:["behind","english","ceiling"] }
+  ];
+
+  var prefs = LS.get("k9:prefs", []);
+  function renderQuiz(){
+    $("quiz").innerHTML = PREFS.map(function(p){
+      return '<button type="button" class="chip" data-p="' + p[0] + '" aria-pressed="' + (prefs.indexOf(p[0]) > -1) + '">' + esc(p[1]) + '</button>';
+    }).join("");
+  }
+  function score(p){ return p.tags.filter(function(t){ return prefs.indexOf(t) > -1; }).length; }
+  function renderPaths(){
+    var list = PATHS.slice();
+    if (prefs.length){ list.sort(function(a, b){ return score(b) - score(a); }); }
+    var best = prefs.length ? Math.max.apply(null, list.map(score)) : 0;
+    $("paths").innerHTML = list.map(function(p){
+      var sc = score(p), cls = "path";
+      if (prefs.length && best > 0 && sc === best) cls += " match";
+      if (prefs.length && sc === 0) cls += " dim";
+      var meter = "";
+      if (prefs.length){
+        meter = '<span class="meter" aria-label="Pasuje do ' + sc + ' z ' + prefs.length + ' odpowiedzi">';
+        for (var i = 0; i < prefs.length; i++){ meter += '<b class="' + (i < sc ? "f" : "") + '"></b>'; }
+        meter += '</span>';
+      }
+      return '<article class="' + cls + '" data-id="' + p.id + '">' +
+        '<span class="strip" aria-hidden="true"></span><div>' +
+        '<h3>' + esc(p.name) + meter + '</h3>' +
+        '<p class="tag">' + esc(p.tag) + '</p>' +
+        '<dl><dt>Start</dt><dd>' + esc(p.start) + '</dd><dt>9 000 zł</dt><dd>' + esc(p.nine) + '</dd></dl>' +
+        '<button type="button" class="open-hint" data-id="' + p.id + '">Zobacz plan krok po kroku</button></div></article>';
+    }).join("");
+    var note = "";
+    if (prefs.length){
+      var top = list.filter(function(p){ return score(p) === best && best > 0; }).map(function(p){ return p.name; });
+      note = top.length ? "Najlepiej pasuje: " + top.join(", ") + "." : "Żadna ścieżka nie pasuje do wszystkich odpowiedzi naraz; zobacz opisy.";
+    }
+    $("quizNote").textContent = note;
+  }
+  $("quiz").addEventListener("click", function(e){
+    var b = e.target.closest(".chip"); if (!b) return;
+    var k = b.getAttribute("data-p"), i = prefs.indexOf(k);
+    if (i > -1) prefs.splice(i, 1); else prefs.push(k);
+    LS.set("k9:prefs", prefs); renderQuiz(); renderPaths();
+  });
+
+  var pathDone = LS.get("k9:pathsteps", {});
+  var dlg = $("pathDialog");
+  function openPath(id){
+    var p = PATHS.filter(function(x){ return x.id === id; })[0]; if (!p) return;
+    var done = pathDone[id] || [];
+    var facts = [["Zarobki", p.earn], ["Start", p.start], ["Czego potrzeba", p.need], ["Konkurencja", p.comp], ["Zdalnie", p.remote], ["Pierwszy klient lub praca", p.first], ["Jak skalować", p.scale]];
+    $("dlgBody").innerHTML =
+      '<div class="sheet-head"><div><h3 id="dlgTitle">' + esc(p.name) + '</h3><div class="small">' + esc(p.tag) + '</div></div>' +
+      '<button type="button" class="x" id="dlgClose" aria-label="Zamknij">×</button></div>' +
+      '<div class="nine">9 000 zł na rękę: ' + esc(p.nine.charAt(0).toLowerCase() + p.nine.slice(1)) + '</div>' +
+      '<h4>Krok po kroku</h4><ol class="steps">' + p.steps.map(function(s, i){
+        return '<li><label class="step"><input type="checkbox" data-i="' + i + '"' + (done.indexOf(i) > -1 ? " checked" : "") + '><span class="num" aria-hidden="true"></span><span>' + esc(s) + '</span></label></li>';
+      }).join("") + '</ol>' +
+      '<h4>Szczegóły</h4><div class="facts">' + facts.map(function(f){ return '<div class="fact"><span>' + esc(f[0]) + '</span>' + esc(f[1]) + '</div>'; }).join("") + '</div>';
+    $("dlgClose").addEventListener("click", function(){ dlg.close(); });
+    $("dlgBody").querySelectorAll(".steps input").forEach(function(inp){
+      inp.addEventListener("change", function(){
+        var arr = pathDone[id] || [], i = Number(inp.getAttribute("data-i")), at = arr.indexOf(i);
+        if (inp.checked && at < 0) arr.push(i); if (!inp.checked && at > -1) arr.splice(at, 1);
+        pathDone[id] = arr; LS.set("k9:pathsteps", pathDone);
+      });
+    });
+    if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+  }
+  $("paths").addEventListener("click", function(e){ var b = e.target.closest(".path"); if (b) openPath(b.getAttribute("data-id")); });
+  dlg.addEventListener("click", function(e){ if (e.target === dlg) dlg.close(); });
+
+  /* ---------- calculator ---------- */
+  var SOCIAL = { ulga:0, pref:456.18, full:1926.76 };
+  var MIN_WAGE = 4806;
+  function uopNet(G){
+    if (G <= 0) return 0;
+    var a = 12 * G, zus = Math.min(a, 282600) * (0.0976 + 0.015) + a * 0.0245;
+    var health = 0.09 * (a - zus), taxable = Math.max(0, a - zus - 3000);
+    var tax = taxable <= 120000 ? taxable * 0.12 - 3600 : 10800 + (taxable - 120000) * 0.32;
+    return (a - zus - health - Math.max(0, tax)) / 12;
+  }
+  function jdg(R, phase, hasJob){
+    if (R <= 0) return { net:0, social:0, health:0, tax:0 };
+    var social = hasJob ? 0 : SOCIAL[phase];
+    var health = R * 12 <= 60000 ? 498.35 : (R * 12 <= 300000 ? 830.58 : 1495.04);
+    var tax = 0.15 * Math.max(0, R - social - 0.5 * health);
+    return { net: R - social - health - tax - 200, social: social, health: health, tax: tax };
+  }
+  var PRESETS = [
+    ["5 klientów × 2 500 zł", { etat:0, dzielo:0, subs:5, subsPrice:2500, ugc:0, ugcPrice:500, reels:0, reelsPrice:300, zus:"pref" }],
+    ["18 filmów UGC × 700 zł", { etat:0, dzielo:0, subs:0, subsPrice:2500, ugc:18, ugcPrice:700, reels:0, reelsPrice:300, zus:"pref" }],
+    ["Etat 7 000 zł + dzieła 4 200 zł", { etat:7000, dzielo:4200, subs:0, subsPrice:2500, ugc:0, ugcPrice:500, reels:0, reelsPrice:300, zus:"pref" }],
+    ["Miks usług", { etat:0, dzielo:0, subs:3, subsPrice:2500, ugc:8, ugcPrice:500, reels:4, reelsPrice:300, zus:"pref" }],
+    ["Etat juniora 6 000 zł", { etat:6000, dzielo:0, subs:0, subsPrice:2500, ugc:0, ugcPrice:500, reels:0, reelsPrice:300, zus:"pref" }]
+  ];
+  var FIELDS = ["etat","dzielo","subs","subsPrice","ugc","ugcPrice","reels","reelsPrice","zus"];
+  $("presets").innerHTML = PRESETS.map(function(p, i){ return '<button type="button" class="chip" data-i="' + i + '" aria-pressed="false">' + esc(p[0]) + '</button>'; }).join("");
+  function setPreset(i){
+    var v = PRESETS[i][1];
+    FIELDS.forEach(function(f){ $(f).value = v[f]; });
+    $("presets").querySelectorAll(".chip").forEach(function(c){ c.setAttribute("aria-pressed", String(Number(c.getAttribute("data-i")) === i)); });
+    calc();
+  }
+  $("presets").addEventListener("click", function(e){ var b = e.target.closest(".chip"); if (b) setPreset(Number(b.getAttribute("data-i"))); });
+  function num(id){ var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : 0; }
+  function calc(){
+    var etat = num("etat"), dz = num("dzielo"), subs = num("subs"), sp = num("subsPrice"), ugc = num("ugc"), up = num("ugcPrice"), reels = num("reels"), rp = num("reelsPrice"), phase = $("zus").value;
+    $("etatOut").textContent = etat ? zl(etat) : "brak";
+    $("dzieloOut").textContent = dz ? zl(dz) : "brak";
+    $("subsOut").textContent = subs + " × " + zl(sp);
+    $("ugcOut").textContent = ugc + " × " + zl(up);
+    $("reelsOut").textContent = reels + " × " + zl(rp);
+    var hasJob = etat >= MIN_WAGE;
+    var R = subs * sp + ugc * up + reels * rp;
+    var u = uopNet(etat), d = dz * 0.94, j = jdg(R, phase, hasJob);
+    var total = u + d + j.net;
+    $("total").textContent = zl(total);
+    var pct = Math.max(0, Math.min(1, total / 9000));
+    var bar = $("bar"); bar.firstElementChild.style.width = (pct * 100).toFixed(1) + "%"; bar.classList.toggle("done", total >= 9000);
+    $("pillTotal").textContent = zl(total); $("pillBar").style.width = (pct * 100).toFixed(1) + "%"; $("pillBar").style.background = total >= 9000 ? "var(--ok)" : "var(--caption)";
+    $("status").textContent = total >= 9000 ? "Cel 9 000 zł osiągnięty, nadwyżka " + zl(total - 9000) + "." : "Do 9 000 zł brakuje " + zl(9000 - total) + ".";
+    var b = [];
+    if (etat) b.push(["Etat na rękę (średnio w roku)", u]);
+    if (dz) b.push(["Umowy o dzieło na rękę", d]);
+    if (R){
+      b.push(["Przychód z działalności", R]);
+      if (j.social) b.push(["ZUS społeczny", -j.social]);
+      b.push(["Składka zdrowotna", -j.health]);
+      b.push(["Podatek, ryczałt 15%", -j.tax]);
+      b.push(["Księgowość", -200]);
+      b.push(["Działalność na rękę", j.net]);
+    }
+    $("breakdown").innerHTML = b.length ? b.map(function(r){ return '<li><span>' + esc(r[0]) + '</span><span>' + zl(r[1]) + '</span></li>'; }).join("") : '<li><span>Ustaw suwaki albo wybierz gotowy scenariusz.</span><span></span></li>';
+    var n = [];
+    if (hasJob && R) n.push("Przy etacie z pensją co najmniej 4 806 zł brutto z działalności płacisz tylko składkę zdrowotną.");
+    if (!hasJob && R && phase === "ulga") n.push("Ulga na start trwa 6 miesięcy; potem wchodzi preferencyjny ZUS i ta sama kwota daje mniej.");
+    if (R && R <= 3604 && !hasJob) n.push("Do 10 813,50 zł przychodu na kwartał możesz działać bez firmy i bez ZUS (działalność nierejestrowana).");
+    if (R * 12 > 240000) n.push("Powyżej 240 000 zł sprzedaży rocznie trzeba zarejestrować się do VAT.");
+    if (dz && !etat && !R) n.push("Sama umowa o dzieło nie daje ubezpieczenia zdrowotnego.");
+    if (ugc >= 4) n.push("To ok. " + (ugc / 4.33).toFixed(1).replace(".", ",") + " filmu UGC tygodniowo.");
+    if (total >= 9000 && R) n.push("Bez płatnego urlopu: żeby mieć tę średnią przez 11 miesięcy pracy w roku, przychód musi być ok. 9% wyższy.");
+    $("notes").innerHTML = n.map(function(t){ return "<li>" + esc(t) + "</li>"; }).join("");
+  }
+  FIELDS.forEach(function(f){ $(f).addEventListener("input", function(){ $("presets").querySelectorAll(".chip").forEach(function(c){ c.setAttribute("aria-pressed", "false"); }); calc(); }); });
+  setPreset(3);
+  (function(){
+    if (!("IntersectionObserver" in window)) return;
+    var inputsVisible = false, resultVisible = false, pill = $("calcPill");
+    var upd = function(){ pill.classList.toggle("show", inputsVisible && !resultVisible); };
+    new IntersectionObserver(function(es){ es.forEach(function(e){ inputsVisible = e.isIntersecting; }); upd(); }, { threshold: 0.05 }).observe(document.querySelector(".calc .panel"));
+    new IntersectionObserver(function(es){ es.forEach(function(e){ resultVisible = e.isIntersecting; }); upd(); }, { threshold: 0.25 }).observe(document.querySelector(".calc .result"));
+  })();
+
+  /* ---------- plan + story bar ---------- */
+  var STAGES = [
+    ["Dzień 1", ["Nagraj 8 prac do portfolio z listy niżej.", "Napisz CV na jedną stronę z linkiem do portfolio w nagłówku."]],
+    ["Dzień 2", ["Aplikuj najpierw tam, gdzie termin mija najszybciej.", "Aplikuj do pozostałych ofert dla juniorów.", "Załóż profile twórcy na TworcyUGC, Influee i Collabstr."]],
+    ["Dzień 3", ["Zrób listę 40 firm: lokale, beauty, nieruchomości, sklepy na TikTok Shop.", "Wyślij 20 wiadomości z próbką dopasowaną do firmy.", "Ustal cennik startowy: film UGC 250–350 zł, rolka z montażem 300–500 zł."]],
+    ["Tydzień 1", ["Wyślij łącznie 10–15 aplikacji.", "Wyślij 50 wiadomości i follow-up po 3–4 dniach.", "Dodawaj jedną nową pracę do portfolio dziennie.", "Sprawdź, czy możesz prowadzić działalność nierejestrowaną: brak firmy w ostatnich 60 miesiącach."]],
+    ["Miesiąc 1", ["Wyślij 150+ wiadomości i odbądź 10–15 rozmów.", "Zdobądź 2–3 płatne zlecenia i jeden abonament.", "Każde zlecenie zamień w case z wynikiem i opinią.", "Po 3 dobrych opiniach podnieś stawki dla nowych klientów.", "Przed przekroczeniem 10 813,50 zł przychodu w kwartale załóż firmę z ulgą na start."]]
+  ];
+  var planDone = LS.get("k9:plan", {});
+  function renderPlan(){
+    $("planGrid").innerHTML = STAGES.map(function(st, si){
+      var c = st[1].filter(function(_, ti){ return planDone[si + ":" + ti]; }).length;
+      return '<div class="stage"><div class="stage-head"><h3>' + esc(st[0]) + '</h3><span class="stage-count">' + c + "/" + st[1].length + '</span></div>' +
+        st[1].map(function(t, ti){ var k = si + ":" + ti; return '<label class="task"><input type="checkbox" data-k="' + k + '"' + (planDone[k] ? " checked" : "") + '><span>' + esc(t) + '</span></label>'; }).join("") + '</div>';
+    }).join("");
+    renderStory();
+  }
+  function renderStory(){
+    var all = 0, done = 0;
+    $("storyBar").innerHTML = STAGES.map(function(st, si){
+      var c = st[1].filter(function(_, ti){ return planDone[si + ":" + ti]; }).length; all += st[1].length; done += c;
+      return '<span class="seg" title="' + esc(st[0]) + '"><i style="width:' + (100 * c / st[1].length).toFixed(0) + '%"></i></span>';
+    }).join("");
+    $("storyCount").textContent = done + "/" + all;
+  }
+  $("planGrid").addEventListener("change", function(e){
+    var k = e.target.getAttribute("data-k"); if (!k) return;
+    if (e.target.checked) planDone[k] = 1; else delete planDone[k];
+    LS.set("k9:plan", planDone); renderPlan();
+  });
+  $("resetPlan").addEventListener("click", function(){ planDone = {}; LS.set("k9:plan", planDone); renderPlan(); });
+  $("storyBar").addEventListener("click", function(){ $("plan").scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); });
+  renderPlan();
+
+  /* ---------- portfolio reels ---------- */
+  var REELS = [
+    ["Reklama: problem i rozwiązanie", "20–30 s", "myślenie sprzedażowe"],
+    ["Unboxing", "15–30 s", "format e-commerce i TikTok Shop"],
+    ["Demo lub how-to", "30–45 s", "edukację klienta w kilka sekund"],
+    ["Jeden film, 3 hooki", "3 × 3 s", "myślenie testami reklam"],
+    ["Rolka dla krakowskiej kawiarni", "15–20 s", "estetykę i content organiczny"],
+    ["Testimonial do kamery", "30 s bez cięć", "swobodę przed kamerą"],
+    ["Przed i po montażu", "2 × 15 s", "umiejętność montażu"],
+    ["Koncept serii dla marki", "1 strona", "strategię i copywriting"]
+  ];
+  var reelDone = LS.get("k9:reels", {});
+  $("reelGrid").innerHTML = REELS.map(function(r, i){
+    return '<label class="reel"><input type="checkbox" data-i="' + i + '"' + (reelDone[i] ? " checked" : "") + ' aria-label="' + esc(r[0]) + ', zrobione">' +
+      '<span class="top"><span class="len">' + esc(r[1]) + '</span><span class="play" aria-hidden="true"></span></span>' +
+      '<span><span class="cap-t">' + esc(r[0]) + '</span><span class="proves" style="display:block">Pokazuje ' + esc(r[2]) + '.</span></span></label>';
+  }).join("");
+  $("reelGrid").addEventListener("change", function(e){
+    var i = e.target.getAttribute("data-i"); if (i === null) return;
+    if (e.target.checked) reelDone[i] = 1; else delete reelDone[i];
+    LS.set("k9:reels", reelDone);
+  });
+
+  /* ---------- offers ---------- */
+  var OFFERS = [
+    { t:"Content Creator", c:"DECOFIRE", src:"RocketJobs", d:"2026-10-18", place:"Kraków, stacjonarnie", remote:false, uop:true, fit:"start", fl:"Dobra na start",
+      url:"https://rocketjobs.pl/oferta-pracy/decofire-grupa-sp-z-o-o--content-creator-krakow-marketing-social-media",
+      pay:"5 000–7 000 zł brutto (UoP) lub 3 800–5 000 zł netto (B2B)", net:"ok. 3 700–5 100 zł na UoP; na B2B ok. 2 200–3 200 zł",
+      why:"Wiedzy produktowej nie wymagają; liczą się kamera, montaż i pomysły.",
+      firma:"Sklep internetowy i showroom z grillami, kuchniami ogrodowymi, piecami do pizzy i kominkami (m.in. Weber, Napoleon, Ooni, Jura, KitchenAid). Kraków, Nad Serafą 56, druga lokalizacja w Zabawie.",
+      co:"TikTok, Instagram, Facebook i Shorts od pomysłu po montaż: testy, porównania, poradniki, unboxingi. Występy przed kamerą, eventy i pokazy, zdjęcia produktów, opisy i blog.",
+      wym:"Znajomość short video, cały proces od pomysłu po montaż, swoboda przed kamerą, lekkie pióro. Mile widziane portfolio lub własne konto, CapCut, Canva.",
+      rekr:"E-mail na justyna@decofire.pl: CV, link do portfolio, oczekiwane wynagrodzenie i forma umowy. Możliwe też zlecenie, dzieło, pół etatu.",
+      tip:"Dołącz rolkę typu „test produktu” z kuchni. Wybierz umowę o pracę, bo na B2B wychodzi wyraźnie mniej." },
+    { t:"Content Creator", c:"FYNK", src:"Pracuj.pl", d:"2026-10-16", place:"Kraków Dębniki, stacjonarnie", remote:false, uop:true, fit:"start", fl:"Dobra na start",
+      url:"https://www.pracuj.pl/praca/content-creator-krakow-michala-bobrzynskiego-12,oferta,1005097051",
+      pay:"4 806–7 000 zł brutto (UoP); możliwe zlecenie, B2B, część etatu", net:"ok. 3 600–5 100 zł",
+      why:"Bez wymogu lat pracy; decydują portfolio i zadanie testowe.",
+      firma:"Krakowska agencja brandingowa z ponad 10-letnim stażem; opakowania i marki m.in. dla Hortexu, LOT-u, dr. Oetkera, Henkla i Wedla.",
+      co:"Content na profile agencji (Instagram, LinkedIn, TikTok, Facebook), nagrania sprzętem agencji, montaż według brandbooka, publikacja, kalendarz, blog i aktualizacje strony.",
+      wym:"Montaż w CapCut lub Edits, trendy wizualne, copywriting, swoboda przed kamerą, portfolio lub przykłady realizacji. Mile widziane agencja, SEO, angielski.",
+      rekr:"CV i portfolio, zadanie testowe, rozmowa online.",
+      tip:"Pokaż 3 rolki z dynamicznymi napisami i jeden post w stylu LinkedIn o opakowaniu znanej marki." },
+    { t:"Social Media content maker", c:"Krakowska Akademia Kosmetyczna", src:"RocketJobs", d:"2026-10-16", place:"Kraków, hybrydowo", remote:false, uop:true, fit:"start", fl:"Dobra na start",
+      url:"https://rocketjobs.pl/oferta-pracy/krakowska-akademia-kosmetyczna-social-media-content-maker-krakow-marketing-social-media-88d974aa",
+      pay:"5 000–7 000 zł brutto (UoP) lub 6 000–8 000 zł netto (B2B); pełny etat, pół etatu albo inna forma", net:"ok. 3 700–5 100 zł na UoP; ok. 3 700–5 400 zł na B2B",
+      why:"Oznaczona jako mid, ale bez liczby lat; decydują portfolio beauty i zadanie.",
+      firma:"Akademia szkoleń kosmetycznych w Krakowie (ul. Lipińskiego 9) z 4 kontami w social mediach.",
+      co:"Wideo i grafiki, nagrania z trenerkami i kursantkami, relacje, backstage i testimoniale, Instagram, TikTok i Facebook, współpraca z influencerkami, materiały do reklam Meta i Google.",
+      wym:"Canva, CapCut, ChatGPT, content marketing, Facebook Ads, polski C2. Mile widziane branża kosmetyczna, fotografia, Lightroom.",
+      rekr:"CV i portfolio (wideo, grafika), krótkie zadanie, rozmowa.",
+      tip:"W treści widełki B2B podano inaczej niż w nagłówku, więc dopytaj. Dołącz backstage, testimonial i 3 propozycje formatów." },
+    { t:"TikTok LIVE Host", c:"PromoTraffic", src:"RocketJobs", d:"2026-10-08", place:"Kraków, studio agencji", remote:false, uop:false, fit:"start", fl:"Najniższy próg",
+      url:"https://rocketjobs.pl/oferta-pracy/promotraffic-tik-tok-live-host-krakow-marketing-social-media",
+      pay:"Zlecenie: podstawa plus prowizja od sprzedaży na LIVE, bez podanych kwot", net:"nieznane; podobna oferta w Warszawie podawała 35–40 zł za godzinę",
+      why:"Zamiast CV wystarczy wideo do 1 minuty.",
+      firma:"Agencja reklamowa z Krakowa (ul. Wadowicka 8a); klienci z mody, beauty, gadżetów i lifestyle'u.",
+      co:"Prowadzisz sprzedażowe transmisje LIVE na TikToku w studiu agencji; kamery i technikę zapewnia agencja.",
+      wym:"Płynne mówienie, reagowanie na komentarze, improwizacja, energia przed kamerą.",
+      rekr:"Wideo do 1 minuty, w którym sprzedajesz dowolny przedmiot.",
+      tip:"Zapytaj o stawkę za godzinę i procent prowizji. Ogłoszenie jest odnawiane, więc rekrutacja trwa stale." },
+    { t:"UGC Video Creator", c:"MATLO", src:"RocketJobs", d:"2026-10-01", place:"zdalnie", remote:true, uop:false, fit:"start", fl:"Pierwsze zlecenie",
+      url:"https://rocketjobs.pl/oferta-pracy/matlo-spolka-z-ograniczona-odpowiedzialnoscia-ugc-video-creator-100-zdalnie--krakow-marketing-social-media",
+      pay:"1 500–2 000 zł miesięcznie, umowa o dzieło, za ok. 5 rolek tygodniowo", net:"ok. 75–100 zł za nagranie",
+      why:"Niska stawka, ale realne reklamy do portfolio.",
+      firma:"Platforma korepetycji online z matematyki dla szkół podstawowych i liceów.",
+      co:"Nagrywasz surowe pionowe rolki według scenariuszy (hook, treść, wezwanie do działania) i warianty hooków do testów reklam Meta; montaż robi firma.",
+      wym:"Portfolio short video, dobry telefon, światło i dźwięk, swoboda przed kamerą.",
+      rekr:"Zgłoszenie z linkiem, rozmowa telefoniczna, nagranie próbne.",
+      tip:"Traktuj to jako pierwszego stałego klienta. Sama umowa o dzieło nie daje ubezpieczenia zdrowotnego." },
+    { t:"Młodszy specjalista ds. Social Media", c:"Centrum Nauczania Domowego", src:"Pracuj.pl", d:"2026-09-28", place:"Kraków Stare Miasto, hybrydowo", remote:false, uop:true, fit:"try", fl:"Spróbuj od razu",
+      url:"https://www.pracuj.pl/praca/mlodszy-specjalista-mlodsza-specjalistka-ds-social-media-krakow-szlak-49,oferta,1005057065",
+      pay:"5 000–6 000 zł brutto (UoP), w treści także zlecenie", net:"ok. 3 700–4 400 zł",
+      why:"Wymaga doświadczenia przy social media, a ogłoszenie wygasa.",
+      firma:"Organizacja edukacji domowej z Krakowa; rekrutuje BW EDUKACJA sp. z o.o. sp.k.",
+      co:"Facebook, Instagram, TikTok, LinkedIn i YouTube; krótkie wideo od planu po montaż; spoty z filmowcem; prowadzenie podcastów o edukacji; analiza i społeczność.",
+      wym:"Doświadczenie przy social media, CapCut, Canva, swoboda przed kamerą. Mile widziane Asana, Trello, Captions, Sotrender.",
+      rekr:"Szybka aplikacja z CV przez Pracuj.pl. Benefity: Multisport, Medicover, ubezpieczenie na życie.",
+      tip:"27.09 ogłoszenie było ważne jeszcze 16 godzin. Jeśli nie zdążysz, obserwuj profil pracodawcy na Pracuj.pl." },
+    { t:"Junior Marketing Specialist", c:"Maxfliz", src:"RocketJobs", d:"2026-09-30", place:"Kraków, hybrydowo", remote:false, uop:true, fit:"try", fl:"Spróbuj",
+      url:"https://rocketjobs.pl/oferta-pracy/maxfliz-junior-marketing-specialist-krakow-marketing-social-media-27212d62",
+      pay:"4 500–5 500 zł brutto (UoP) za 3/4 etatu", net:"ok. 3 400–4 100 zł",
+      why:"Wymaga pierwszego doświadczenia; więcej druku i POS niż contentu.",
+      firma:"Krakowska sieć salonów łazienek, kuchni i wnętrz, na rynku od 1992 (ul. Zakopiańska 58).",
+      co:"Materiały marketingowe i POS od briefu po druk, kampanie, katalogi, social media marek własnych, treści na stronę.",
+      wym:"Pierwsze doświadczenie w marketingu lub koordynacji projektów, pisanie briefów, estetyka, MS Office. Mile widziane POS i współpraca z drukarniami.",
+      rekr:"Aplikacja przez RocketJobs. Benefity: prywatna opieka medyczna, sport, ubezpieczenie na życie, zniżki.",
+      tip:"3/4 etatu zostawia czas na zlecenia UGC. W CV pokaż organizację i estetykę, nie tylko rolki." },
+    { t:"Junior Influencer Marketing Manager", c:"Bluebinary.io", src:"RocketJobs", d:"2026-10-02", place:"zdalnie", remote:true, uop:false, fit:"exp", fl:"Wymaga doświadczenia",
+      url:"https://rocketjobs.pl/oferta-pracy/bluebinary-io-junior-influencer-marketing-manager-krakow-marketing-social-media",
+      pay:"5 500–9 000 zł brutto (zlecenie) lub netto (B2B), premie za efekty", net:"ok. 3 300–6 300 zł na B2B",
+      why:"Podstawy influencer marketingu, angielski B2 i gaming; branża iGaming.",
+      firma:"Globalne kampanie z twórcami na Twitchu, YouTube i Kicku dla branży iGaming i loterii.",
+      co:"Szukasz i pozyskujesz streamerów, opiekujesz się relacjami, pracujesz z działem prawnym i księgowością, raportujesz wyniki.",
+      wym:"Podstawy influencer marketingu, angielski B2, znajomość sceny Counter-Strike'a i iGamingu, Google Workspace, Slack, Asana, skrupulatność.",
+      rekr:"CV, rozmowa z HR (30 minut), rozmowa rekrutacyjna (60 minut). Benefity: 20 dni płatnego urlopu, Multisport, budżet szkoleniowy.",
+      tip:"To marketing hazardu online, którego reklama w Polsce jest mocno ograniczona. Zdecyduj, czy chcesz pracować w tej branży." },
+    { t:"InfluencerMarketing Intern", c:"SpaceCat", src:"RocketJobs", d:"2026-10-15", place:"zdalnie", remote:true, uop:false, fit:"exp", fl:"Dla studentek i absolwentek",
+      url:"https://rocketjobs.pl/oferta-pracy/spacecat-influencermarketing-intern---praktyki-26-krakow-marketing-social-media-cf49776f",
+      pay:"2 550 zł miesięcznie, 3-miesięczny staż, 40 godzin tygodniowo", net:"w nagłówku jako brutto, w treści jako netto; dopytaj",
+      why:"Staż dla osób po 3. lub 4. roku studiów albo kończących studia.",
+      firma:"Space Cat Industries z Warszawy, agencja short video dla pokolenia Z; klienci m.in. New Balance, Fortnite, Lidl, OLX, Semilac; dwukrotnie nagrodzona w TikTok Ad Awards.",
+      co:"Research twórców i kategorii, codzienny kontakt z twórcami, wsparcie zespołu kampanii; ponad połowa czasu to szkolenia.",
+      wym:"Status studentki lub absolwentki, najlepsze wyniki na roku, znajomość TikToka i twórców, bardzo dobry angielski, Excel i PowerPoint.",
+      rekr:"Kilka zdań o sobie, dlaczego SpaceCat, oraz 3 ulubieni twórcy z TikToka z uzasadnieniem.",
+      tip:"W treści widnieje start w kwietniu 2026, więc ogłoszenie jest odświeżane; zapytaj o najbliższy termin. Po stażu możliwe stałe zatrudnienie." },
+    { t:"Photo / Video Creator", c:"OTCF (4F)", src:"RocketJobs", d:"2026-10-08", place:"Kraków, stacjonarnie", remote:false, uop:true, fit:"exp", fl:"Wymaga doświadczenia",
+      url:"https://rocketjobs.pl/oferta-pracy/otcf-s-a--photo-video-creator-krakow-marketing-social-media",
+      pay:"Umowa o pracę, pełny etat; wynagrodzenia nie podano", net:"brak danych",
+      why:"Min. rok w fotografii komercyjnej lub e-commerce.",
+      firma:"OTCF S.A. z Krakowa (ul. Saska 25C), właściciel marki 4F; zniżki na 4F, Outhorn, Under Armour i Sports Style Story.",
+      co:"Zdjęcia produktowe i wizerunkowe, wideo, planowanie sesji, sprzęt i światło, współpraca ze stylistami i retuszerami.",
+      wym:"Min. rok fotografii komercyjnej, modowej lub e-commerce, światło studyjne, Capture One, Adobe CC, angielski B2.",
+      rekr:"CV przez RocketJobs. Benefity: sport, opieka medyczna, szkolenia, siłownia w budynku.",
+      tip:"Cel na później, po zdobyciu doświadczenia w fotografii produktowej." }
+  ];
+  var OFILTERS = [["all", "Wszystkie"], ["start", "Dobre na start"], ["remote", "Zdalnie"], ["uop", "Umowa o pracę"]];
+  var offerFilter = "all";
+  function plDays(n){ var t = n % 10, h = n % 100; return (t >= 2 && t <= 4 && !(h >= 12 && h <= 14)) ? "Zostały " + n + " dni" : "Zostało " + n + " dni"; }
+  var now = new Date();
+  function deadlineInfo(iso){
+    var p = iso.split("-");
+    var dl = Math.round((Date.UTC(Number(p[0]), Number(p[1]) - 1, Number(p[2])) - Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())) / 86400000);
+    var label, soon = false, expired = false;
+    if (dl < 0){ label = "Wygasła"; expired = true; }
+    else if (dl === 0){ label = "Ostatni dzień"; soon = true; }
+    else if (dl === 1){ label = "Został 1 dzień"; soon = true; }
+    else { label = plDays(dl); soon = dl <= 5; }
+    return { dl: dl, label: label + " (" + p[2] + "." + p[1] + ")", soon: soon, expired: expired };
+  }
+  function renderOffers(){
+    $("offerFilter").innerHTML = OFILTERS.map(function(f){ return '<button type="button" class="chip" data-f="' + f[0] + '" aria-pressed="' + (offerFilter === f[0]) + '">' + esc(f[1]) + '</button>'; }).join("");
+    var list = OFFERS.filter(function(o){ return offerFilter === "all" || (offerFilter === "start" && o.fit === "start") || (offerFilter === "remote" && o.remote) || (offerFilter === "uop" && o.uop); })
+      .map(function(o){ return { o: o, i: deadlineInfo(o.d) }; })
+      .sort(function(a, b){ return (a.i.expired - b.i.expired) || (a.i.dl - b.i.dl); });
+    if (!list.length){ $("offers").innerHTML = '<p class="offers-empty">Brak ofert w tym filtrze. Wybierz „Wszystkie”.</p>'; return; }
+    $("offers").innerHTML = list.map(function(x){
+      var o = x.o, i = x.i;
+      var rows = [["Firma", o.firma], ["Na rękę", o.net], ["Co robisz", o.co], ["Wymagania", o.wym], ["Jak aplikować", o.rekr], ["Wskazówka", o.tip]];
+      return '<details class="offer' + (i.expired ? " expired" : "") + '"><summary>' +
+        '<div class="sum-top"><div><h3>' + esc(o.t) + '</h3><div class="co">' + esc(o.c) + ", " + esc(o.place) + '</div></div></div>' +
+        '<div class="pay">' + esc(o.pay) + '</div>' +
+        '<div class="sum-meta"><span class="fit ' + o.fit + '">' + esc(o.fl) + '</span><span class="badge' + (i.soon ? " soon" : "") + '">' + esc(i.label) + '</span><span class="more" aria-hidden="true"></span></div>' +
+        '</summary><div class="offer-body"><p class="why">' + esc(o.why) + '</p><dl>' +
+        rows.map(function(r){ return '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd>'; }).join("") +
+        '</dl><div class="offer-link"><a class="btn" href="' + esc(o.url) + '" target="_blank" rel="noopener">Otwórz ogłoszenie na ' + esc(o.src) + '</a></div></div></details>';
+    }).join("");
+  }
+  $("offerFilter").addEventListener("click", function(e){ var b = e.target.closest(".chip"); if (!b) return; offerFilter = b.getAttribute("data-f"); renderOffers(); });
+  renderOffers();
+
+  renderQuiz(); renderPaths();
+})();
+</script>
+</body>
+</html>
